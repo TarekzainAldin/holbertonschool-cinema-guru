@@ -1,13 +1,12 @@
-.username,
-.title {
-  color: #bb000e; /* Style for username */
-  size: 12px;
+/* Miscellaneous component styles */
+
+li.activity-item {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+  color: #333;
 }
 
-.added,
-.action-text1,
-.action-text2,
-.separator,
-.date {
-  color: #ffffff; /* Style for the remaining text */
+li.activity-item p {
+  margin: 0;
 }

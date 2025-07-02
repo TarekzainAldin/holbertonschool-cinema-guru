@@ -126,3 +126,164 @@
   align-items: center;
 }
 .logout svg { width: 16px; height: 16px; }
+/* Sidebar container */
+.sidebar {
+  position: relative;
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+/* Navigation list */
+.navigation-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 70px; /* space for icons */
+}
+
+/* Navigation list items */
+.navigation-list li {
+  position: relative;
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.navigation-list li.selected,
+.navigation-list li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Icon frames */
+.icon-frame-small {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Specific icon vertical positioning */
+.icon-frame-home {
+  top: 94px;
+}
+
+.icon-frame-rectangle {
+  position: absolute;
+  width: 50px;
+  height: 48px;
+  left: 0;
+  top: 126px;
+  background: #E31C25;
+  border-radius: 0;
+  z-index: -1; /* behind icon */
+}
+
+.icon-frame-favorites {
+  top: 142px;
+}
+
+.icon-frame-watchlater {
+  top: 190px;
+}
+
+/* Activity list styles */
+.activity-list {
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+}
+
+/* Sidebar container */
+.sidebar {
+  position: relative;
+  width: 250px;
+  height: 100vh;
+  background: #fff;
+  border-right: 1px solid #ddd;
+  padding-top: 80px;
+  box-sizing: border-box;
+}
+
+/* Navigation list */
+.navigation-list {
+  list-style: none;
+  margin: 0;
+  padding-left: 70px; /* space for icons */
+}
+
+/* Navigation list items */
+.navigation-list li {
+  position: relative;
+  padding: 10px 0;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease;
+}
+
+.navigation-list li.selected,
+.navigation-list li:hover {
+  background-color: #e0e0e0;
+}
+
+/* Icon frames */
+.icon-frame-small {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+/* Specific icon vertical positioning */
+.icon-frame-home {
+  top: 94px;
+}
+
+.icon-frame-rectangle {
+  position: absolute;
+  width: 50px;
+  height: 48px;
+  left: 0;
+  top: 126px;
+  background: #E31C25;
+  border-radius: 0;
+  z-index: -1; /* behind icon */
+}
+
+.icon-frame-favorites {
+  top: 142px;
+}
+
+.icon-frame-watchlater {
+  top: 190px;
+}
+
+/* Activity list styles */
+.activity-list {
+  list-style: none;
+  margin: 20px 0 0 0;
+  padding: 0 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  border-top: 1px solid #ccc;
+}
