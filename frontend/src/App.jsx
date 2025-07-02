@@ -1,56 +1,60 @@
-import React, { useState, useEffect } from "react";
-import "./App.css";
-import axios from "axios";
-import Authentication from "./routes/auth/Authentication";
-import Dashboard from "./routes/dashboard/Dashboard";
+import React, { useState, useEffect } from 'react';
+import Authentication from './routes/auth/Authentication';
 
-function App() {
-  // State to manage authentication
+export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [userUsername, setUserUsername] = useState("");
+  const [lastAction, setLastAction] = useState(""); // "login" or "register"
 
   useEffect(() => {
-    // Get accessToken from localStorage
-    const accessToken = localStorage.getItem("accessToken");
+    const token = localStorage.getItem('accessToken');
+    if (!token) return;
 
-    // If accessToken exists, make the API call
-    if (accessToken) {
-      axios
-        .post(
-          "http://localhost:8000/api/auth/",
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${accessToken}`,
-            },
-          }
-        )
-        .then((response) => {
-          // On success, update the states
-          setIsLoggedIn(true);
-          setUsername(response.data.username);
-        })
-        .catch((error) => {
-          console.error("Authentication failed:", error);
-        });
-    }
-  }, []); // Empty dependency array to run once on mount
+    // تأكد من تحديث الرابط حسب سيرفرك
+    fetch('http://localhost:8000/api/auth/verify', {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      }
+    })
+      .then(res => {
+        if (!res.ok) throw new Error('Unauthorized');
+        return res.json();
+      })
+      .then(data => {
+        setIsLoggedIn(true);
+        setUserUsername(data.username);
+      })
+      .catch(() => {
+        setIsLoggedIn(false);
+        setUserUsername("");
+        localStorage.removeItem('accessToken');
+      });
+  }, []);
+
+  const welcomeMessage =
+    lastAction === "register"
+      ? `مرحبًا، ${userUsername} ✅ تم التسجيل بنجاح`
+      : `مرحبًا، ${userUsername} ✅ تم تسجيل الدخول`;
 
   return (
-    <div className="App">
+    <>
       {isLoggedIn ? (
-        <Dashboard
-          userUsername={username} // Pass username to Dashboard
-          setIsLoggedIn={setIsLoggedIn} // Pass setIsLoggedIn as prop
-        />
+        <div style={{ padding: 20 }}>
+          <h2>{welcomeMessage}</h2>
+          <button onClick={() => {
+            localStorage.removeItem('accessToken');
+            setIsLoggedIn(false);
+            setUserUsername("");
+          }}>تسجيل الخروج</button>
+        </div>
       ) : (
         <Authentication
-          setIsLoggedIn={setIsLoggedIn} // Pass setIsLoggedIn as prop
-          setUserUsername={setUsername} // Pass setUserUsername as prop (setUsername)
+          setIsLoggedIn={setIsLoggedIn}
+          setUserUsername={setUserUsername}
+          setLastAction={setLastAction}
         />
       )}
-    </div>
+    </>
   );
 }
-
-export default App;

@@ -1,0 +1,150 @@
+.header-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #161616;
+  font-family: "Roboto", sans-serif;
+}
+
+/* Styling for the title ("Cinema Guru") */
+.header-nav span:first-child {
+  font-size: 15px;
+  color: #ffffff;
+}
+
+/* Styling for the right side content (avatar, welcome message, and logout button) */
+.header-nav div {
+  display: flex;
+  align-items: center;
+}
+
+/* Avatar styling */
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 3px solid #bb000e;
+}
+
+/* Welcome message styling */
+.header-nav p {
+  margin: 0;
+  font-size: 16px;
+  color: #ffffff;
+  margin-right: 15px;
+}
+
+/* Logout button styling */
+.logout {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  color: #bb000e;
+}
+
+.logout i,
+.logout svg {
+  margin-right: 5px; /* Space between icon and text */
+}
+
+/* ---------------------------------- */
+
+/* Style de la sidebar */
+.sidebar-nav {
+  background-color: #bb000e;
+  transition: width 0.3s ease;
+  overflow: hidden;
+  height: 100%;
+}
+
+/* Largeur étroite pour l’état "collapsed" */
+.sidebar-nav.collapsed {
+  width: 50px;
+}
+
+/* Largeur étendue pour l’état "expanded" */
+.sidebar-nav.expanded {
+  width: 218px;
+}
+
+.navigation-list,
+.activity-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 16px;
+}
+
+.activities-container {
+  background-color: #2c2c2c;
+  width: 208px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.activities-title {
+  margin-top: 10px;
+  font-size: 24px;
+  text-align: center;
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 10px;
+}
+
+/* Icône de navigation */
+.navigation-list li {
+  display: flex;
+  align-items: center; /* Aligne verticalement */
+  padding: 10px 0; /* Supprime tout padding horizontal */
+}
+
+.navigation-list li .icon {
+  color: #ffffff;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  margin-left: 0;
+}
+
+/* Texte de navigation masqué en mode "collapsed" */
+.navigation-list li .text {
+  font-size: 16px;
+  color: #ffffff;
+  opacity: 0;
+  margin-left: 0;
+  transition: opacity 0.3s ease, margin-left 0.3s ease;
+  overflow-wrap: break-word;
+  white-space: normal;
+}
+
+/* Texte visible en mode "expanded" */
+.sidebar-nav.expanded .navigation-list li .text {
+  opacity: 1;
+  margin-left: 10px;
+}
+
+/* Liste des activités, masquée en mode "collapsed" */
+.activity-list {
+  font-size: 12px;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-nav.expanded .activity-list {
+  opacity: 1;
+}
+
+.navigation-list li.active::after {
+  content: "→"; /* Unicode arrow */
+  color: #ffffff;
+  font-size: 18px;
+  position: absolute;
+  right: 10px;
+}
+
+.sidebar-nav.collapsed .navigation-list li .text,
+.sidebar-nav.collapsed .navigation-list li::after {
+  display: none;
+}

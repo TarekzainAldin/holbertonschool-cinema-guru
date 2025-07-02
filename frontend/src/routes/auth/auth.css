@@ -1,0 +1,110 @@
+.auth-container {
+  background-color: #141414;
+  color: #333;
+  height: 380px;
+  width: 390px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+
+
+.auth-box {
+  background-color: white;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 360px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Tabs container */
+.auth-tabs {
+  position: relative;
+  display: flex;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #f7dada; /* very light red background */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* The sliding red background under active tab */
+.auth-tabs .slider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50%;              /* half width because two buttons */
+  background-color: #d32f2f; /* strong red */
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  z-index: 1;              /* behind buttons */
+}
+
+/* Tab buttons */
+.auth-tabs button {
+  flex: 1;
+  padding: 18px 0;         /* taller buttons */
+  background: transparent; /* transparent so slider shows behind */
+  color: #5a0000;          /* dark red text */
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2;              /* above slider */
+  transition: color 0.3s ease;
+  font-size: 16px;
+  border-radius: 0;
+}
+
+.auth-tabs button.active {
+  color: white;            /* white text on active */
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #333;
+}
+
+.auth-input {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.auth-input input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: none;
+  border-bottom: 2px solid #d32f2f;
+  outline: none;
+  font-size: 16px;
+  background-color: transparent;
+}
+
+.auth-input .icon {
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  color: #d32f2f;
+}
+
+.auth-box button.submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #d32f2f;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.auth-box button.submit-btn:hover {
+  background-color: #b71c1c;
+}

@@ -1,5 +1,6 @@
 import React from 'react';
-import './general.css'; // تأكد أن هذا الملف موجود ويحتوي على ستايلاتك العامة
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  // استيراد المكون
+import './general.css';
 
 function Input({ label, type, className = '', value, setValue, icon, inputAttributes = {} }) {
   const handleInput = (e) => {
@@ -10,7 +11,7 @@ function Input({ label, type, className = '', value, setValue, icon, inputAttrib
     <div className={`input-wrapper ${className}`}>
       {label && <label className="input-label">{label}</label>}
       <div className="input-container">
-        {icon && <span className="input-icon">{icon}</span>}
+        {icon && <FontAwesomeIcon icon={icon} className="input-icon" />} {/* هنا */}
         <input
           type={type}
           value={value}
