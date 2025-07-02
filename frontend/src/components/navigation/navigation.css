@@ -1,150 +1,128 @@
-.header-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px;
-  background-color: #161616;
-  font-family: "Roboto", sans-serif;
-}
-
-/* Styling for the title ("Cinema Guru") */
-.header-nav span:first-child {
-  font-size: 15px;
-  color: #ffffff;
-}
-
-/* Styling for the right side content (avatar, welcome message, and logout button) */
-.header-nav div {
-  display: flex;
-  align-items: center;
-}
-
-/* Avatar styling */
-.avatar {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 10px;
-  border: 3px solid #bb000e;
-}
-
-/* Welcome message styling */
-.header-nav p {
-  margin: 0;
-  font-size: 16px;
-  color: #ffffff;
-  margin-right: 15px;
-}
-
-/* Logout button styling */
-.logout {
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  color: #bb000e;
-}
-
-.logout i,
-.logout svg {
-  margin-right: 5px; /* Space between icon and text */
-}
-
-/* ---------------------------------- */
-
-/* Style de la sidebar */
-.sidebar-nav {
-  background-color: #bb000e;
-  transition: width 0.3s ease;
+.header {
+  position: relative;
+  width: 80vw;
+  max-width: 1200px;
+  height: 300px;
+  margin: 0 auto;
+  background: #222;
+  font-family: 'Roboto', sans-serif;
+  color: #fff;
+  border-radius: 8px;
   overflow: hidden;
-  height: 100%;
 }
 
-/* Largeur étroite pour l’état "collapsed" */
-.sidebar-nav.collapsed {
-  width: 50px;
-}
-
-/* Largeur étendue pour l’état "expanded" */
-.sidebar-nav.expanded {
-  width: 218px;
-}
-
-.navigation-list,
-.activity-list {
-  list-style-type: none;
-  margin: 0;
-  padding: 16px;
-}
-
-.activities-container {
-  background-color: #2c2c2c;
-  width: 208px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.activities-title {
-  margin-top: 10px;
-  font-size: 24px;
-  text-align: center;
-  color: #ffffff;
-  text-decoration: underline;
-  text-underline-offset: 10px;
-}
-
-/* Icône de navigation */
-.navigation-list li {
-  display: flex;
-  align-items: center; /* Aligne verticalement */
-  padding: 10px 0; /* Supprime tout padding horizontal */
-}
-
-.navigation-list li .icon {
-  color: #ffffff;
-  width: 16px;
-  height: 16px;
-  text-align: center;
-  margin-left: 0;
-}
-
-/* Texte de navigation masqué en mode "collapsed" */
-.navigation-list li .text {
-  font-size: 16px;
-  color: #ffffff;
-  opacity: 0;
-  margin-left: 0;
-  transition: opacity 0.3s ease, margin-left 0.3s ease;
-  overflow-wrap: break-word;
-  white-space: normal;
-}
-
-/* Texte visible en mode "expanded" */
-.sidebar-nav.expanded .navigation-list li .text {
-  opacity: 1;
-  margin-left: 10px;
-}
-
-/* Liste des activités, masquée en mode "collapsed" */
-.activity-list {
-  font-size: 12px;
-  margin-top: 20px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.sidebar-nav.expanded .activity-list {
-  opacity: 1;
-}
-
-.navigation-list li.active::after {
-  content: "→"; /* Unicode arrow */
-  color: #ffffff;
-  font-size: 18px;
+/* Full background */
+.rect-full {
   position: absolute;
-  right: 10px;
+  inset: 0;
 }
 
-.sidebar-nav.collapsed .navigation-list li .text,
-.sidebar-nav.collapsed .navigation-list li::after {
-  display: none;
+/* Main rectangle inset */
+.rect-main {
+  position: absolute;
+  top: 59px; left: 49px;
+  right: 49px; bottom: 55px;
+  background: #222;
 }
+
+/* Top bar */
+.top-bar {
+  position: absolute;
+  height: 62px;
+  top: 0; left: 0; right: 0;
+  background: #161616;
+}
+
+/* Side bars */
+.side-bar {
+  position: absolute;
+  width: 50px;
+  top: 62px; bottom: 0;
+  left: 0;
+  background: #bb000e;
+}
+.side-bar-top {
+  position: absolute;
+  width: 50px;
+  height: 48px;
+  left: 0; top: 78px;
+  background: #e31c25;
+}
+
+/* Date filters */
+.date-filter {
+  position: absolute;
+  top: 155px; left: 98px;
+  display: flex; align-items: center; gap: 40px;
+}
+.date-label, .colon {
+  font-size: 16px;
+}
+
+/* Search box */
+.search-box {
+  position: absolute;
+  top: 110px; left: 98px;
+  width: 535px; height: 28px;
+  background: #2c2c2c;
+  border-radius: 15px;
+}
+
+/* Nav buttons grid two rows */
+.nav-buttons {
+  position: absolute;
+  top: 118px; right: 20px;
+  display: grid;
+  grid-template-columns: repeat(5, auto);
+  gap: 8px 16px;
+}
+.nav-btn {
+  padding: 2px 8px;
+  border: 1px solid #e31c25;
+  border-radius: 15px;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* Title */
+.title {
+  position: absolute;
+  top: 21px; left: 48px;
+  font-size: 15px;
+}
+
+/* User area */
+.user-area {
+  position: absolute;
+  top: 21px; right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.profile-pic {
+  width: 41px; height: 41px;
+  border: 3px solid #bb000e;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+
+.welcome {
+  display: flex; gap: 4px;
+  font-size: 16px;
+}
+.username { font-weight: 700; }
+
+.logout {
+  display: flex; gap: 4px;
+  font-size: 16px;
+  color: #bb000e;
+  background: none;
+  border: none;
+  cursor: pointer;
+  align-items: center;
+}
+.logout svg { width: 16px; height: 16px; }

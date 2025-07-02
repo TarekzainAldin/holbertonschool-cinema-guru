@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Authentication from './routes/auth/Authentication';
+import Authentication from './routes/auth/Authentication'; // Your login/register component
+import Dashboard from './routes/dashboard/Dashboard';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -10,7 +11,6 @@ export default function App() {
     const token = localStorage.getItem('accessToken');
     if (!token) return;
 
-    // تأكد من تحديث الرابط حسب سيرفرك
     fetch('http://localhost:8000/api/auth/verify', {
       method: 'GET',
       headers: {
@@ -34,20 +34,16 @@ export default function App() {
 
   const welcomeMessage =
     lastAction === "register"
-      ? `مرحبًا، ${userUsername} ✅ تم التسجيل بنجاح`
-      : `مرحبًا، ${userUsername} ✅ تم تسجيل الدخول`;
+      ? `Hello ${userUsername} ✅ Registered successfully`
+      : `Hello ${userUsername} ✅ Logged in successfully`;
 
   return (
     <>
       {isLoggedIn ? (
-        <div style={{ padding: 20 }}>
-          <h2>{welcomeMessage}</h2>
-          <button onClick={() => {
-            localStorage.removeItem('accessToken');
-            setIsLoggedIn(false);
-            setUserUsername("");
-          }}>تسجيل الخروج</button>
-        </div>
+        <>
+          <h2 style={{ padding: 20 }}>{welcomeMessage}</h2>
+          <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
+        </>
       ) : (
         <Authentication
           setIsLoggedIn={setIsLoggedIn}
