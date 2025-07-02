@@ -1,0 +1,78 @@
+/* عام للكل */
+input, select, button {
+  background-color: #2C2C2C;
+  color: white;
+  border: 1px solid #E31C25;
+  border-radius: 15px;
+  padding: 8px 12px;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+label {
+  color: white;
+  font-size: 0.85rem;
+  display: block;
+  margin-bottom: 5px;
+}
+
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  background-color: #E31C25;
+  color: #fff;
+}
+
+/* Search Bar */
+.search-bar {
+  position: absolute;
+  width: 535px;
+  height: 28px;
+  left: 98px;
+  top: 110px;
+  background: #2C2C2C;
+  border-radius: 15px;
+  border: 1px solid #E31C25;
+  padding: 5px 10px;
+  color: white;
+}
+
+/* زر أحمر عام */
+.rect-button {
+  box-sizing: border-box;
+  position: absolute;
+  width: 71px;
+  height: 24px;
+  left: 1328px;
+  top: 118px;
+  border: 1px solid #E31C25;
+  border-radius: 15px;
+  background-color: transparent;
+  color: #E31C25;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* فلترة النوع */
+.genre-tag {
+  background-color: #2C2C2C;
+  border: 1px solid #E31C25;
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+  font-size: 0.75rem;
+  margin: 2px;
+  cursor: pointer;
+}
+
+.genre-tag.active {
+  background-color: #E31C25;
+  color: white;
+}
