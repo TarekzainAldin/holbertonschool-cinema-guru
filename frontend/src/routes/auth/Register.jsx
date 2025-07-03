@@ -1,32 +1,37 @@
-// src/routes/auth/Register.jsx
-import React from 'react';
 import './auth.css';
-import { FaUser, FaLock } from 'react-icons/fa';
+import Input from '../../components/general/Input'
+import Button from '../../components/general/Button'
+import keyIcon from '../../assets/images/greykey.png';
+import avatarIcon from '../../assets/images/avatar.png';
+import keyWhiteIcon from '../../assets/images/whitekey.png';
 
-export default function Register({ username, password, setUsername, setPassword }) {
-  return (
-    <>
-      <h2>Create a new account</h2>
-      <div className="auth-input">
-        <FaUser className="icon" />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
-      <div className="auth-input">
-        <FaLock className="icon" />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-    </>
-  );
-}
+const Register = ({ username, password, setUsername, setPassword }) => {
+	return (
+		<div className="register">
+			<p>Create a new account</p>
+			<Input
+				label="Username:"
+				type='text'
+				className='username_register'
+				value={username}
+				setValue={setUsername}
+				icon={avatarIcon}
+			/>
+			<Input
+				label="Password:"
+				type='password'
+				className='password_register'
+				value={password}
+				setValue={setPassword}
+				icon={keyIcon}
+			/>
+			<Button type="submit"
+				label="Sign Up"
+				className="sign_up_button_register"
+				icon={keyWhiteIcon}>
+			</Button>
+		</div>
+	);
+};
+
+export default Register;

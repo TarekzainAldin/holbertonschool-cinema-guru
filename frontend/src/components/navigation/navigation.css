@@ -1,289 +1,87 @@
-.header {
-  position: relative;
-  width: 80vw;
-  max-width: 1200px;
-  height: 300px;
-  margin: 0 auto;
-  background: #222;
-  font-family: 'Roboto', sans-serif;
-  color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	background-color: rgba(22, 22, 22, 1);
+	font-size: 16px;
+	color: white;
+	width: 100%;
 }
 
-/* Full background */
-.rect-full {
-  position: absolute;
-  inset: 0;
+.header-container .cinema-guru {
+	margin-left: 3rem;
 }
 
-/* Main rectangle inset */
-.rect-main {
-  position: absolute;
-  top: 59px; left: 49px;
-  right: 49px; bottom: 55px;
-  background: #222;
+
+.right {
+	display: flex;
+	gap: 15px;
+	align-items: center;
+	margin-right: 3rem;
 }
 
-/* Top bar */
-.top-bar {
-  position: absolute;
-  height: 62px;
-  top: 0; left: 0; right: 0;
-  background: #161616;
+.header-container span {
+	color: rgba(187, 0, 14, 1);
 }
 
-/* Side bars */
-.side-bar {
-  position: absolute;
-  width: 50px;
-  top: 62px; bottom: 0;
-  left: 0;
-  background: #bb000e;
-}
-.side-bar-top {
-  position: absolute;
-  width: 50px;
-  height: 48px;
-  left: 0; top: 78px;
-  background: #e31c25;
+.avatar-logo {
+	width: 2rem;
+	height: auto;
+	border-radius: 50%;
+	border: 3px solid rgba(187, 0, 14, 1);
+	object-fit: cover;
 }
 
-/* Date filters */
-.date-filter {
-  position: absolute;
-  top: 155px; left: 98px;
-  display: flex; align-items: center; gap: 40px;
-}
-.date-label, .colon {
-  font-size: 16px;
+.sidebar-nav{
+	background-color: rgba(187, 0, 14, 1);
+	width: 18%;
+	color: white;
+	min-height: 100vh;
 }
 
-/* Search box */
-.search-box {
-  position: absolute;
-  top: 110px; left: 98px;
-  width: 535px; height: 28px;
-  background: #2c2c2c;
-  border-radius: 15px;
+.sidebar-nav-small {
+	background-color: rgba(187, 0, 14, 1);
+	display: inline-block;
+	color: white;
+	min-height: 100vh;
 }
 
-/* Nav buttons grid two rows */
-.nav-buttons {
-  position: absolute;
-  top: 118px; right: 20px;
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  gap: 8px 16px;
-}
-.nav-btn {
-  padding: 2px 8px;
-  border: 1px solid #e31c25;
-  border-radius: 15px;
-  background: transparent;
-  color: #fff;
-  font-size: 14px;
-  height: 24px;
-  cursor: pointer;
+ul {
+	list-style-type: none;
+	padding: 0;
 }
 
-/* Title */
-.title {
-  position: absolute;
-  top: 21px; left: 48px;
-  font-size: 15px;
+.li-container {
+	display: flex;
+	padding-top: 1rem;
+	padding-bottom: 1rem;
+	font-size: 16px;
+
 }
 
-/* User area */
-.user-area {
-  position: absolute;
-  top: 21px; right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-.profile-pic {
-  width: 41px; height: 41px;
-  border: 3px solid #bb000e;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.profile-pic img { width: 100%; height: 100%; object-fit: cover; }
+.li-container:hover {
+	background-color: rgba(243, 29, 39, 1);
 
-.welcome {
-  display: flex; gap: 4px;
-  font-size: 16px;
-}
-.username { font-weight: 700; }
-
-.logout {
-  display: flex; gap: 4px;
-  font-size: 16px;
-  color: #bb000e;
-  background: none;
-  border: none;
-  cursor: pointer;
-  align-items: center;
-}
-.logout svg { width: 16px; height: 16px; }
-/* Sidebar container */
-.sidebar {
-  position: relative;
-  width: 250px;
-  height: 100vh;
-  background: #fff;
-  border-right: 1px solid #ddd;
-  padding-top: 80px;
-  box-sizing: border-box;
 }
 
-/* Navigation list */
-.navigation-list {
-  list-style: none;
-  margin: 0;
-  padding-left: 70px; /* space for icons */
+li {
+	margin-left: 1rem;
 }
 
-/* Navigation list items */
-.navigation-list li {
-  position: relative;
-  padding: 10px 0;
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease;
+img {
+	padding-left: 1rem;
 }
 
-.navigation-list li.selected,
-.navigation-list li:hover {
-  background-color: #e0e0e0;
+.activities-sidebar {
+	background-color: rgba(44, 44, 44, 1);
+	width: 92%;
+	margin-left: auto;
+	margin-right: auto;
+	padding-bottom: 0.5rem;
 }
 
-/* Icon frames */
-.icon-frame-small {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-
-/* Specific icon vertical positioning */
-.icon-frame-home {
-  top: 94px;
-}
-
-.icon-frame-rectangle {
-  position: absolute;
-  width: 50px;
-  height: 48px;
-  left: 0;
-  top: 126px;
-  background: #E31C25;
-  border-radius: 0;
-  z-index: -1; /* behind icon */
-}
-
-.icon-frame-favorites {
-  top: 142px;
-}
-
-.icon-frame-watchlater {
-  top: 190px;
-}
-
-/* Activity list styles */
-.activity-list {
-  list-style: none;
-  margin: 20px 0 0 0;
-  padding: 0 12px;
-  max-height: 300px;
-  overflow-y: auto;
-  border-top: 1px solid #ccc;
-}
-
-/* Sidebar container */
-.sidebar {
-  position: relative;
-  width: 250px;
-  height: 100vh;
-  background: #fff;
-  border-right: 1px solid #ddd;
-  padding-top: 80px;
-  box-sizing: border-box;
-}
-
-/* Navigation list */
-.navigation-list {
-  list-style: none;
-  margin: 0;
-  padding-left: 70px; /* space for icons */
-}
-
-/* Navigation list items */
-.navigation-list li {
-  position: relative;
-  padding: 10px 0;
-  font-weight: 500;
-  cursor: pointer;
-  user-select: none;
-  transition: background-color 0.2s ease;
-}
-
-.navigation-list li.selected,
-.navigation-list li:hover {
-  background-color: #e0e0e0;
-}
-
-/* Icon frames */
-.icon-frame-small {
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 16px;
-}
-
-/* Specific icon vertical positioning */
-.icon-frame-home {
-  top: 94px;
-}
-
-.icon-frame-rectangle {
-  position: absolute;
-  width: 50px;
-  height: 48px;
-  left: 0;
-  top: 126px;
-  background: #E31C25;
-  border-radius: 0;
-  z-index: -1; /* behind icon */
-}
-
-.icon-frame-favorites {
-  top: 142px;
-}
-
-.icon-frame-watchlater {
-  top: 190px;
-}
-
-/* Activity list styles */
-.activity-list {
-  list-style: none;
-  margin: 20px 0 0 0;
-  padding: 0 12px;
-  max-height: 300px;
-  overflow-y: auto;
-  border-top: 1px solid #ccc;
+.activities-sidebar h1{
+	font-size: 24px;
+	font-weight: lighter;
+	text-decoration:underline;
+	text-align: center;
 }

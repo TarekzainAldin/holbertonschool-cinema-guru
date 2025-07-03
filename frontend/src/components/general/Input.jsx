@@ -1,27 +1,25 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';  // استيراد المكون
 import './general.css';
 
-function Input({ label, type, className = '', value, setValue, icon, inputAttributes = {} }) {
-  const handleInput = (e) => {
-    setValue(e.target.value);
-  };
+const Input = ({ label, type, className, value, setValue, icon, inputAttributes }) => {
+	const handleInput = (event) => {
+		setValue(event.target.value);
+	};
 
-  return (
-    <div className={`input-wrapper ${className}`}>
-      {label && <label className="input-label">{label}</label>}
-      <div className="input-container">
-        {icon && <FontAwesomeIcon icon={icon} className="input-icon" />} {/* هنا */}
-        <input
-          type={type}
-          value={value}
-          onChange={handleInput}
-          className="input-field"
-          {...inputAttributes}
-        />
-      </div>
-    </div>
-  );
-}
+	return (
+		<div className="input">
+		<div className="input-and-label">
+		{icon && <img src={icon} alt="" className="icon" />}
+		<label htmlFor="input">{label}</label>
+		</div>
+		<input
+		type={type}
+		className={className}
+		value={value}
+		onChange={handleInput}
+		{...inputAttributes}
+		/>
+		</div>
+	  );
+};
 
 export default Input;

@@ -1,21 +1,27 @@
-import React from 'react'
-import './general.css'
+import './general.css';
 
-export default function SelectInput({ label, options, className, value, setValue }) {
-  const handleSelect = (e) => {
-    setValue(e.target.value)
-  }
+const SelectInput = ({ label, options, className, value, setValue }) => {
+	const handleSelect = (event) => {
+		setValue(event.target.value);
+	};
 
-  return (
-    <div className={`select-input ${className || ''}`}>
-      {label && <label className="select-label">{label}</label>}
-      <select value={value} onChange={handleSelect} className="select-element">
-        {options.map((option, idx) => (
-          <option key={idx} value={option.value}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
-  )
-}
+	return (
+		<div className="selectInput">
+			<label htmlFor="selectInput">{label}</label>
+			<select
+				className={className}
+				value={value}
+				onChange={handleSelect}
+			>
+			{options.map((option, index) => (
+				<option key={index} value={option.value}>
+					{option.label}
+				</option>
+			))}
+		</select>
+		<div className="red-line"></div>
+		</div >
+	  );
+};
+
+export default SelectInput;

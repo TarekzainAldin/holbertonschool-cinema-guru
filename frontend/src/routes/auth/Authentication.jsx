@@ -1,74 +1,71 @@
-// src/routes/auth/Authentication.jsx
-import React, { useState } from 'react';
 import './auth.css';
+import { useState } from 'react';
+import axios from 'axios';
+import Button from '../../components/general/Button';
 import Login from './Login';
 import Register from './Register';
-import axios from 'axios';
 
-export default function Authentication({ setIsLoggedIn, setUserUsername }) {
-  const [_switch, setSwitch] = useState(true); // true = Login, false = Register
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
+	const [_switch, set_switch] = useState(true);
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+	const handleSubmit = async (event) => {
+		event.preventDefault();
+		console.log(username, password)
 
-    const endpoint = _switch
-      ? 'http://localhost:8000/api/auth/login'
-      : 'http://localhost:8000/api/auth/register';
+		try {
+			const url = _switch
+				? 'http://localhost:8000/api/auth/login'
+				: 'http://localhost:8000/api/auth/register';
 
-    try {
-      const res = await axios.post(endpoint, { username, password });
-      localStorage.setItem('accessToken', res.data.accessToken);
-      setUserUsername(username);
-      setIsLoggedIn(true);
-    } catch (error) {
-      alert(
-        error.response?.data?.message ||
-        (_switch ? 'Login failed' : 'Register failed')
-      );
-    }
-  };
+			const response = await axios.post(url, { username, password },
+			)
 
-  return (
-    <div className="auth-container">
-      <div className="auth-box">
-        <div className="auth-switch">
-          <button
-            className={_switch ? 'active' : ''}
-            onClick={() => setSwitch(true)}
-          >
-            Sign In
-          </button>
-          <button
-            className={!_switch ? 'active' : ''}
-            onClick={() => setSwitch(false)}
-          >
-            Sign Up
-          </button>
-        </div>
+			const token = response.data.accessToken;
+			localStorage.setItem('accessToken', token);
 
-        <form onSubmit={handleSubmit}>
-          {_switch ? (
-            <Login
-              username={username}
-              password={password}
-              setUsername={setUsername}
-              setPassword={setPassword}
-            />
-          ) : (
-            <Register
-              username={username}
-              password={password}
-              setUsername={setUsername}
-              setPassword={setPassword}
-            />
-          )}
-          <button type="submit" className="submit-btn">
-            {_switch ? 'Sign In' : 'Sign Up'}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-}
+			setUserUsername(username);
+			setIsLoggedIn(true);
+
+			console.log("Authentification réussie :", response);
+		} catch (error) {
+			console.error("Erreur d'authentification :", error.response ? error.response.data : error.message);
+		}
+	};
+
+	return (
+		<div className="html_form">
+			<form onSubmit={handleSubmit}>
+				<div className='auth_buttons'>
+					<Button
+						label="Sign In"
+						className="sign_in_button"
+						onClick={() => set_switch(true)}
+						type="button"
+					/>
+					<Button
+						label="Sign Up"
+						className="sign_up_button"
+						onClick={() => set_switch(false)}
+						type="button"
+					/>
+				</div>
+				{_switch ? (
+					<Login
+						username={username}
+						password={password}
+						setUsername={setUsername}
+						setPassword={setPassword}></Login>
+				) : (<Register
+					username={username}
+					password={password}
+					setUsername={setUsername}
+					setPassword={setPassword}></Register>
+				)}
+			</form>
+		</div>
+	);
+};
+
+export default Authentication;

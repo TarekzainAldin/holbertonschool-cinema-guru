@@ -1,32 +1,37 @@
-// src/routes/auth/Login.jsx
-import React from 'react';
 import './auth.css';
-import { FaUser, FaLock } from 'react-icons/fa';
+import Input from '../../components/general/Input'
+import Button from '../../components/general/Button'
+import avatarIcon from '../../assets/images/avatar.png';
+import keyIcon from '../../assets/images/greykey.png';
+import keyWhiteIcon from '../../assets/images/whitekey.png';
 
-export default function Login({ username, password, setUsername, setPassword }) {
-  return (
-    <>
-      <h2>Sign in with your account</h2>
-      <div className="auth-input">
-        <FaUser className="icon" />
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          required
-        />
-      </div>
-      <div className="auth-input">
-        <FaLock className="icon" />
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-    </>
-  );
-}
+const Login = ({ username, password, setUsername, setPassword }) => {
+	return (
+		<div className="login">
+			<p>Sign in with your account</p>
+			<Input
+				label="Username:"
+				type='text'
+				className='username_login'
+				value={username}
+				setValue={setUsername}
+				icon={avatarIcon}>
+			</Input>
+			<Input
+				label="Password:"
+				type='password'
+				className='password_login'
+				value={password}
+				setValue={setPassword}
+				icon={keyIcon}>
+			</Input>
+			<Button type="submit"
+				label="Sign In"
+				className="sign_in_button_login"
+				icon={keyWhiteIcon}>
+			</Button>
+		</div>
+	);
+};
+
+export default Login;

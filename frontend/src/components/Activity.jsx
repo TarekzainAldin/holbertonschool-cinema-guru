@@ -1,19 +1,16 @@
-import React from 'react';
-import './components.css';
+import './components.css'
 
-export default function Activity({ activity }) {
-  const formatActivity = (act) => {
-    if (!act) return "";
-    if (act.action && act.title) {
-      // Format: Capitalize action + title, e.g. "Liked 'Video 1' recently."
-      return `${act.action.charAt(0).toUpperCase() + act.action.slice(1)} "${act.title}" recently.`;
-    }
-    return "Recent activity.";
+const Activity = ({ activity }) => {
+	return (
+	  <li>
+		<p>
+			<span className='red-text'>{activity.user.username}
+			</span> added
+			<span className='red-text'> {activity.title.title}
+			</span> to {activity.activityType} - {new Date(activity.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+	  </li>
+	);
   };
 
-  return (
-    <li className="activity-item">
-      <p>{formatActivity(activity)}</p>
-    </li>
-  );
-}
+  export default Activity;
+  
