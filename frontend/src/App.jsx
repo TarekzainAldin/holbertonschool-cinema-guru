@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Authentication from './routes/auth/Authentication'; // Your login/register component
+import Authentication from './routes/auth/Authentication';
 import Dashboard from './routes/dashboard/Dashboard';
 
 export default function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userUsername, setUserUsername] = useState("");
-  const [lastAction, setLastAction] = useState(""); // "login" or "register"
+  const [lastAction, setLastAction] = useState("");
 
   useEffect(() => {
     const token = localStorage.getItem('accessToken');
@@ -13,9 +13,7 @@ export default function App() {
 
     fetch('http://localhost:8000/api/auth/verify', {
       method: 'GET',
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
+      headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => {
         if (!res.ok) throw new Error('Unauthorized');
@@ -41,7 +39,7 @@ export default function App() {
     <>
       {isLoggedIn ? (
         <>
-          <h2 style={{ padding: 20 }}>{welcomeMessage}</h2>
+          { <h2 style={{ padding: 20 }}>{welcomeMessage}</h2> }
           <Dashboard userUsername={userUsername} setIsLoggedIn={setIsLoggedIn} />
         </>
       ) : (
